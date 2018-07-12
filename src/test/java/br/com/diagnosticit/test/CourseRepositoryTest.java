@@ -16,7 +16,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import org.junit.Test;
+import org.springframework.test.annotation.DirtiesContext;
 
 /**
  *
@@ -35,5 +37,12 @@ public class CourseRepositoryTest {
     public void contextLoads(){
         Course course = repository.findById( 10001L );
         assertEquals("Java Como Programar", course.getName());
+    }
+    
+    @Test    
+    @DirtiesContext
+    public void testeDeleteById(){
+        repository.deleteById( 10002L );
+        assertNull( repository.findById( 10002L ));
     }
 }

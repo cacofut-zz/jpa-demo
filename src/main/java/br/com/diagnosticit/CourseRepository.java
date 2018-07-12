@@ -20,15 +20,24 @@ import org.springframework.stereotype.Repository;
 public class CourseRepository {
         
     @PersistenceContext
-    private EntityManager entityManager;
+    private EntityManager em;
     
     public Course findById( Long id ){
-        return entityManager.find( Course.class , id );
+        return em.find( Course.class , id );
     }
     
     public void deleteById( Long id ){
         Course course = findById( id );
-        entityManager.remove( course );
+        em.remove( course );
+    }
+    
+    public Course save( Course course ){
+        if( course.getId() == null )
+            em.persist( course );
+        else
+            em.merge( course );
+        
+        return course;
     }
     
 }
