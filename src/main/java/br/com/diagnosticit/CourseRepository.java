@@ -9,6 +9,8 @@ import br.com.diagnosticit.domain.Course;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -21,6 +23,8 @@ public class CourseRepository {
         
     @PersistenceContext
     private EntityManager em;
+    
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
     
     public Course findById( Long id ){
         return em.find( Course.class , id );
@@ -39,5 +43,25 @@ public class CourseRepository {
         
         return course;
     }
+
+    public void playWithEntityManager() {
+        
+        logger.info( "Play With EntityManager" );
+        Course course1 = new Course( "Web services in 100 steps" );
+        Course course2 = new Course( "RESTFULL services in 100 steps" );
+        
+        em.persist( course1 );
+        em.persist( course2 );    
+
+        em.detach( course1 );
+        em.detach( course2 );
+        em.flush();
+        
+        
+        course1.setName( "Web services in 100 steps atualizado" );
+        course2.setName( "RESTFULL services in 100 steps atualizado" );
+    }   
+
+
     
 }

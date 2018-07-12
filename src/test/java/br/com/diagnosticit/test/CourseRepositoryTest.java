@@ -59,4 +59,10 @@ public class CourseRepositoryTest {
         Course course1 = repository.findById( 10001L );
         assertEquals( "Java Como Programar Atualizado" , course1.getName());
     }
+    
+    @Test
+    @DirtiesContext
+    public void playWithEntityManager(){
+        repository.playWithEntityManager();
+    }
 }
