@@ -45,4 +45,18 @@ public class CourseRepositoryTest {
         repository.deleteById( 10002L );
         assertNull( repository.findById( 10002L ));
     }
+    
+    @Test
+    public void testeSave(){
+        
+        Course course = repository.findById( 10001L );
+        assertEquals( "Java Como Programar" , course.getName());
+        
+        course.setName( "Java Como Programar Atualizado" );
+        
+        repository.save( course );
+        
+        Course course1 = repository.findById( 10001L );
+        assertEquals( "Java Como Programar Atualizado" , course1.getName());
+    }
 }
