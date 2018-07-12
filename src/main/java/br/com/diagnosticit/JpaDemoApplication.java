@@ -22,6 +22,6 @@ public class JpaDemoApplication implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        //courseRepository.playWithEntityManager();
+        courseRepository.playWithEntityManager();
     }
 }

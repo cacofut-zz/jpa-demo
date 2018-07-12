@@ -51,19 +51,8 @@ public class CourseRepository {
         Course course1 = new Course( "Web services in 100 steps" );
         em.persist( course1 );
         
-        Course course2 = new Course( "RESTFULL services in 100 steps" );
-        em.persist( course2 );
-                    
-        //em.detach( course1 ); // desvincula objeto do contexto persistente
-        //em.detach( course2 );
-        em.flush();
-        
-        course1.setName( "Web services in 100 steps atualizado" );
-        course2.setName( "RESTFULL services in 100 steps atualizado" );
-        
-        em.refresh( course1 );
-        
-        em.flush();
+        Course course2 = findById( 10002L );
+        course2.setName( "C# Como Programar Atualizado" );
          
 
     }   
