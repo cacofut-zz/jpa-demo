@@ -22,7 +22,9 @@ public class JpaDemoApplication implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-       Course course = courseRepository.findById( 1L );
-       logger.info( "Course 1 -> {}", course  );
+       Course course = courseRepository.findById( 10001L );
+       logger.info( "Course 10001 -> {}", course  );
+       courseRepository.deleteById( 10001L );
+       logger.info( "Course 10001 -> {}", course  );
     }
 }

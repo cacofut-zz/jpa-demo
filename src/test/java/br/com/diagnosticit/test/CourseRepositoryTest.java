@@ -33,7 +33,7 @@ public class CourseRepositoryTest {
     
     @Test
     public void contextLoads(){
-        Course course = repository.findById( 1L );
+        Course course = repository.findById( 10001L );
         assertEquals("Java Como Programar", course.getName());
     }
 }
