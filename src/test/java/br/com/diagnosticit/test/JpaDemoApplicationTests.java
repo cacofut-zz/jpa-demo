@@ -1,4 +1,4 @@
-package br.com.diagnosticit;
+package br.com.diagnosticit.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

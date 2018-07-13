@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.diagnosticit;
+package br.com.diagnosticit.repositories;
 
 import br.com.diagnosticit.domain.Course;
 import javax.persistence.EntityManager;

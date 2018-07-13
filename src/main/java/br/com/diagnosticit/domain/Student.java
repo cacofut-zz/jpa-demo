@@ -57,6 +57,16 @@ public class Student {
         this.name = name;
     }
 
+    public Passport getPassport() {
+        return passport;
+    }
+
+    public void setPassport(Passport passport) {
+        this.passport = passport;
+    }
+    
+    
+
     @Override
     public String toString() {
         return "Student{" + "id=" + id + ", name=" + name + '}';

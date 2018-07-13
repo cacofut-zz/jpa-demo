@@ -5,7 +5,7 @@
  */
 package br.com.diagnosticit.test;
 
-import br.com.diagnosticit.CourseRepository;
+import br.com.diagnosticit.repositories.CourseRepository;
 import br.com.diagnosticit.JpaDemoApplication;
 import br.com.diagnosticit.domain.Course;
 import org.junit.runner.RunWith;
