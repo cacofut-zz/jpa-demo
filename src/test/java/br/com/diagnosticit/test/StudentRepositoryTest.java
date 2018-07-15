@@ -10,6 +10,7 @@ import br.com.diagnosticit.domain.Passport;
 import br.com.diagnosticit.domain.Student;
 import br.com.diagnosticit.repositories.StudentRepository;
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -35,6 +36,7 @@ public class StudentRepositoryTest {
     private EntityManager em;
     
     @Test 
+    @Transactional
     public void findStudentWithPassport(){        
         Student student = em.find(Student.class, 20001L );
         logger.info( "Student -> {}", student );
