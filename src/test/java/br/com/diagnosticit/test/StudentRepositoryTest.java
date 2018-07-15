@@ -9,6 +9,7 @@ import br.com.diagnosticit.JpaDemoApplication;
 import br.com.diagnosticit.domain.Passport;
 import br.com.diagnosticit.domain.Student;
 import br.com.diagnosticit.repositories.StudentRepository;
+import javax.persistence.EntityManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -27,8 +28,18 @@ public class StudentRepositoryTest {
     
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     
+    //@Autowired
+    //private StudentRepository studentRepository;
+    
     @Autowired
-    private StudentRepository studentRepository;
+    private EntityManager em;
+    
+    @Test 
+    public void findStudentWithPassport(){        
+        Student student = em.find(Student.class, 20001L );
+        logger.info( "Student -> {}", student );
+        logger.info( "Passport -> {}", student.getPassport() );
+    }
     
    
 }

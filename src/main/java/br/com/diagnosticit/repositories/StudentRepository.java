@@ -23,9 +23,14 @@ public class StudentRepository {
     @Autowired
     private EntityManager em;
     
+    public Student findById( Long id ){
+        return em.find( Student.class, id );
+    }
+      
     public Student save( Student student ){
         return null;
     }
+    
     
     public void saveStudentWithPassport(){
         
