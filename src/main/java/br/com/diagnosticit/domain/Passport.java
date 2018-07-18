@@ -7,8 +7,10 @@ package br.com.diagnosticit.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -24,6 +26,9 @@ public class Passport {
     @Column( nullable = false )
     private String number;
 
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "passport")    
+    private Student student;
+    
     public Passport() {
     }
 
@@ -35,6 +40,8 @@ public class Passport {
         this.id = id;
         this.number = number;
     }
+    
+    
 
     public Long getId() {
         return id;
@@ -52,6 +59,14 @@ public class Passport {
         this.number = number;
     }
 
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+    
     @Override
     public String toString() {
         return "Passaport{" + "id=" + id + ", number=" + number + '}';
