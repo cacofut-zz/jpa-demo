@@ -6,11 +6,14 @@
 package br.com.diagnosticit.domain;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -32,6 +35,9 @@ public class Course {
     
     @CreationTimestamp
     private LocalDateTime createdDate;
+    
+    @OneToMany(mappedBy = "course")
+    private List<Reviews> reviews = new ArrayList<>();
 
     public Course() {
     }
@@ -60,6 +66,20 @@ public class Course {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<Reviews> getReviews() {
+        return reviews;
+    }
+
+    public void addReview(Reviews review) {
+        this.reviews.add(review);
+    }
+    
+    public void removeReview(Reviews review) {
+        this.reviews.remove(review);
+    }
+    
+    
 
     @Override
     public String toString() {

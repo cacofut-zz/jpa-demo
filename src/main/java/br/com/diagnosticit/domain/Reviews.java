@@ -9,6 +9,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import org.hibernate.annotations.ManyToAny;
 
 /**
  *
@@ -25,6 +27,9 @@ public class Reviews {
     private String rating;    
     
     private String description;
+    
+    @ManyToOne
+    private Course course;
 
     public Reviews() {
     }
