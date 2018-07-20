@@ -12,4 +12,4 @@ insert into student( id, name, passport_id )values( 20003, 'Vanessa', 30003  );
 
 insert into reviews( id, rating, description, course_id )values( 40001, '5', 'Awesome', 10001 );
 insert into reviews( id, rating, description, course_id )values( 40002, '4', 'Bad', 10001 );
-insert into reviews( id, rating, description, course_id )values( 40003, '3', 'Greatfull', 10001 ); 
+insert into reviews( id, rating, description, course_id )values( 40003, '3', 'Greatfull', 10001 );  
