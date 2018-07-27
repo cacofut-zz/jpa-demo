@@ -6,6 +6,7 @@
 package br.com.diagnosticit.repositories;
 
 import br.com.diagnosticit.domain.Course;
+import br.com.diagnosticit.domain.Reviews;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -56,6 +57,27 @@ public class CourseRepository {
          
 
     }   
+        
+    public void findCourseReviews(){
+    
+        Course course =em.find( Course.class , 10001L );
+        logger.info( "course -> {}", course );
+        logger.info( "reviews -> {}", course.getReviews() );
+        
+        Reviews r1 = new Reviews( "4" , "Mais ou menos");
+        Reviews r2 = new Reviews( "5", "Muito bom gostei" );
+                
+        course.addReview( r1 );
+        r1.setCourse( course );
+        
+        course.addReview( r2 );
+        r2.setCourse( course );
+        
+        em.persist( r1 );
+        em.persist( r2 );
+                      
+        
+    }
 
 
     
