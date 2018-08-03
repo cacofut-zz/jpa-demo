@@ -5,6 +5,7 @@
  */
 package br.com.diagnosticit.repositories;
 
+import br.com.diagnosticit.domain.Course;
 import br.com.diagnosticit.domain.Passport;
 import br.com.diagnosticit.domain.Student;
 import javax.persistence.EntityManager;
@@ -39,6 +40,19 @@ public class StudentRepository {
         Student student = new Student( "João de Ferraz" );
         student.setPassport( passport );
         em.persist( student );
+        
+    }
+    
+    public void insertStudentAndCourse(){
+        
+        Student student = new Student("João Silva");
+        Course course = new Course("Novo curso de programação");
+        
+        em.persist( student );
+        em.persist( course );
+        
+        course.addStudent(student);
+        student.addCourse(course);
         
     }
 }

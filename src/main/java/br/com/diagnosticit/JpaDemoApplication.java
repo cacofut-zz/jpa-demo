@@ -32,5 +32,6 @@ public class JpaDemoApplication implements CommandLineRunner{
         //studentRepository.saveStudentWithPassport();playWithEntityManager();
         
         courseRepository.findCourseReviews();
+        studentRepository.insertStudentAndCourse();
     }
 }
