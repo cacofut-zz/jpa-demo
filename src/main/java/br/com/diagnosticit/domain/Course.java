@@ -26,7 +26,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 public class Course {
         
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)    
     private Long id;
    
     private String name;
