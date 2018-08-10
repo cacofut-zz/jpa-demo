@@ -32,8 +32,7 @@ public abstract class Empregado {
         this.id = id;
         this.nome = nome;
     }
-    
-    
+        
     private String nome;
 
     public long getId() {

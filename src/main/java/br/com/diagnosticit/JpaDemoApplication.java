@@ -40,11 +40,11 @@ public class JpaDemoApplication implements CommandLineRunner{
         //courseRepository.findCourseReviews();
         //studentRepository.insertStudentAndCourse();
         
-        empregadoRepository.insert( new EmpregadoAssalariado(800.00, "Cristiano") );
-        empregadoRepository.insert( new EmpregadoHorista(80, "Cristiano") );
+        //empregadoRepository.insert( new EmpregadoAssalariado(800.00, "Cristiano") );
+        //empregadoRepository.insert( new EmpregadoHorista(80, "Cristiano") );
         
-        logger.info( "Empregado Assalariados -> {}", empregadoRepository.findAllEmpregadosAssalariados() );
-        logger.info( "Empregado horistas -> {}", empregadoRepository.findAllEmpregadosHoristas() );
+        //logger.info( "Empregado Assalariados -> {}", empregadoRepository.findAllEmpregadosAssalariados() );
+        //logger.info( "Empregado horistas -> {}", empregadoRepository.findAllEmpregadosHoristas() );
         
         
     }
