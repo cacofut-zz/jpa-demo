@@ -2,7 +2,10 @@ package br.com.diagnosticit;
 
 import br.com.diagnosticit.repositories.CourseRepository;
 import br.com.diagnosticit.domain.Course;
+import br.com.diagnosticit.domain.EmpregadoAssalariado;
+import br.com.diagnosticit.domain.EmpregadoHorista;
 import br.com.diagnosticit.domain.Student;
+import br.com.diagnosticit.repositories.EmpregadoRepository;
 import br.com.diagnosticit.repositories.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +23,9 @@ public class JpaDemoApplication implements CommandLineRunner{
     @Autowired
     private StudentRepository studentRepository;
     
+    @Autowired
+    private EmpregadoRepository empregadoRepository;
+    
     Logger logger = LoggerFactory.getLogger(this.getClass());
     
     public static void main(String[] args) {
@@ -31,7 +37,15 @@ public class JpaDemoApplication implements CommandLineRunner{
         //courseRepository.playWithEntityManager();
         //studentRepository.saveStudentWithPassport();playWithEntityManager();
         
-        courseRepository.findCourseReviews();
-        studentRepository.insertStudentAndCourse();
+        //courseRepository.findCourseReviews();
+        //studentRepository.insertStudentAndCourse();
+        
+        empregadoRepository.insert( new EmpregadoAssalariado(800.00, "Cristiano") );
+        empregadoRepository.insert( new EmpregadoHorista(80, "Cristiano") );
+        
+        logger.info( "Empregado Assalariados -> {}", empregadoRepository.findAllEmpregadosAssalariados() );
+        logger.info( "Empregado horistas -> {}", empregadoRepository.findAllEmpregadosHoristas() );
+        
+        
     }
 }

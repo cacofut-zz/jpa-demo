@@ -5,20 +5,34 @@
  */
 package br.com.diagnosticit.domain;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 /**
  *
- * @author cristianoca
+ * @author cristiano
  */
-@Entity
-public class Empregado {
+@MappedSuperclass
+public abstract class Empregado {
+
     
     @Id
     @GeneratedValue
     private long id;
+
+    public Empregado() {
+    }
+
+    public Empregado(String nome) {
+        this.nome = nome;
+    }
+
+    public Empregado(long id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+    
     
     private String nome;
 
@@ -41,10 +55,6 @@ public class Empregado {
     @Override
     public String toString() {
         return "Empregado{" + "id=" + id + ", nome=" + nome + '}';
-    }
-    
-    
-    
-    
-    
+    }    
+
 }
