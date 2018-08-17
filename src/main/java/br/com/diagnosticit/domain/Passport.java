@@ -5,6 +5,7 @@
  */
 package br.com.diagnosticit.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,7 +27,7 @@ public class Passport {
     @Column( nullable = false )
     private String number;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "passport")    
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "passport")   
     private Student student;
     
     public Passport() {

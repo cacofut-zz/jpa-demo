@@ -5,6 +5,7 @@
  */
 package br.com.diagnosticit.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -23,6 +26,10 @@ import org.hibernate.annotations.UpdateTimestamp;
  * @author cristianoca
  */
 @Entity
+@NamedQueries(value = {
+    @NamedQuery(name = "query_get_all_courses", query = "Select c From Course c"),
+    @NamedQuery(name = "query_get_name_in_HTML5_courses", query = "Select c From Course c where name like '%HTML5%'")
+})
 public class Course {
         
     @Id
@@ -40,7 +47,7 @@ public class Course {
     @OneToMany(mappedBy = "course")
     private List<Reviews> reviews = new ArrayList<>();
     
-    @ManyToMany(mappedBy = "courses")
+    @ManyToMany(mappedBy = "courses")    
     private List<Student> students = new ArrayList<>();
 
     public Course() {

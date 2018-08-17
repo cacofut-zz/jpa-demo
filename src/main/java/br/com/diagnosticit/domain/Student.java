@@ -5,6 +5,7 @@
  */
 package br.com.diagnosticit.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
@@ -32,6 +33,7 @@ public class Student {
     private String name;
     
     @OneToOne(fetch = FetchType.LAZY)
+    @JsonIgnore 
     private Passport passport;
     
     @ManyToMany

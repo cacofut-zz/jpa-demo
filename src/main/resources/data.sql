@@ -2,6 +2,11 @@ insert into course( id, name, last_updated_date, created_date ) values( 10001, '
 insert into course( id, name, last_updated_date, created_date ) values( 10002, 'C# Como Programar', sysdate(), sysdate());
 insert into course( id, name, last_updated_date, created_date ) values( 10003, 'HTML5 Como Programar', sysdate(), sysdate());
 
+insert into course( id, name, last_updated_date, created_date ) values( 10004, 'Curso1', sysdate(), sysdate());
+insert into course( id, name, last_updated_date, created_date ) values( 10005, 'Curso2', sysdate(), sysdate());
+insert into course( id, name, last_updated_date, created_date ) values( 10006, 'Curso3', sysdate(), sysdate());
+
+
 insert into passport( id, number )values( 30001, 'E123456' );  
 insert into passport( id, number )values( 30002, 'N123456' );
 insert into passport( id, number )values( 30003, 'J123456' );
