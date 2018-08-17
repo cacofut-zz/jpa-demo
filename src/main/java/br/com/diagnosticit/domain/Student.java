@@ -33,7 +33,6 @@ public class Student {
     private String name;
     
     @OneToOne(fetch = FetchType.LAZY)
-    @JsonIgnore 
     private Passport passport;
     
     @ManyToMany

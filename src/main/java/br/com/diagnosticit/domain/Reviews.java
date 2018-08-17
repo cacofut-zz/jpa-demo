@@ -5,6 +5,7 @@
  */
 package br.com.diagnosticit.domain;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

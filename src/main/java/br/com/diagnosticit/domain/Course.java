@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,6 +31,7 @@ import org.hibernate.annotations.UpdateTimestamp;
     @NamedQuery(name = "query_get_all_courses", query = "Select c From Course c"),
     @NamedQuery(name = "query_get_name_in_HTML5_courses", query = "Select c From Course c where name like '%HTML5%'")
 })
+@Cacheable
 public class Course {
         
     @Id
@@ -48,6 +50,7 @@ public class Course {
     private List<Reviews> reviews = new ArrayList<>();
     
     @ManyToMany(mappedBy = "courses")    
+    @JsonIgnore 
     private List<Student> students = new ArrayList<>();
 
     public Course() {
