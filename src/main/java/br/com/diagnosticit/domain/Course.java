@@ -29,6 +29,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Entity
 @NamedQueries(value = {
     @NamedQuery(name = "query_get_all_courses", query = "Select c From Course c"),
+    @NamedQuery(name = "query_get_all_courses_join_fetch", query = "Select c From Course c JOIN FETCH c.students s"),
     @NamedQuery(name = "query_get_name_in_HTML5_courses", query = "Select c From Course c where name like '%HTML5%'")
 })
 @Cacheable
